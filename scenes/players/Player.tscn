@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://vxtbbqekq7nl"]
+[gd_scene load_steps=6 format=3 uid="uid://d3kuegi87vxvt"]
 
 [ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="1_46ybd"]
 [ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_vodpx"]
@@ -35,3 +35,9 @@ metadata/_custom_type_script = "uid://d350u8evihs1u"
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("3_wry2o")
 metadata/_custom_type_script = "uid://cu8yqlcxu1kfa"
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.953412, 0.301671, 0, -0.301671, 0.953412, 0, 1.53419, 0)
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cccs1fak5w2s5"]
 
 [ext_resource type="Script" uid="uid://di0pfqcffu2h5" path="res://scripts/players/player_spawner.gd" id="1_7jwfx"]
-[ext_resource type="PackedScene" uid="uid://vxtbbqekq7nl" path="res://scenes/players/player.tscn" id="2_2jv5y"]
+[ext_resource type="PackedScene" uid="uid://d3kuegi87vxvt" path="res://scenes/players/player.tscn" id="2_2jv5y"]
 
 [node name="LevelGreybox" type="Node3D"]
 
