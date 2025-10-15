@@ -10,7 +10,12 @@
 		{
 			"uuid": "aa322626-de8c-48c0-907d-7d68e6419d40",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"78b44e61-251a-4c73-a762-5f741523100a",
+				"ce9d371d-9699-497d-8006-88b4a8dc0b0d",
+				"aa9c5feb-085b-4377-97fc-4bb2f7cdb2ba",
+				"740474a2-3c99-479f-900f-a68fadd1e203"
+			]
 		},
 		{
 			"uuid": "8f62b976-31c6-4249-9fb3-3db9ccc8ada0",
@@ -23,7 +28,36 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "ce9d371d-9699-497d-8006-88b4a8dc0b0d",
+			"title": "Setup Player Controller with Rollback",
+			"description": "",
+			"category": "7538dc90-e2a1-4e5c-a895-3d99bc2526f2",
+			"steps": []
+		},
+		{
+			"uuid": "78b44e61-251a-4c73-a762-5f741523100a",
+			"title": "Setup Basic Lobby Joining (Should copy from GF)",
+			"description": "",
+			"category": "7538dc90-e2a1-4e5c-a895-3d99bc2526f2",
+			"steps": []
+		},
+		{
+			"uuid": "aa9c5feb-085b-4377-97fc-4bb2f7cdb2ba",
+			"title": "Ensure two players can walk around correctly",
+			"description": "",
+			"category": "7538dc90-e2a1-4e5c-a895-3d99bc2526f2",
+			"steps": []
+		},
+		{
+			"uuid": "740474a2-3c99-479f-900f-a68fadd1e203",
+			"title": "Setup projectile weapon",
+			"description": "",
+			"category": "7538dc90-e2a1-4e5c-a895-3d99bc2526f2",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[
