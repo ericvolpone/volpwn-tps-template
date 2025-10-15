@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://vxtbbqekq7nl"]
+
+[ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="1_46ybd"]
+[ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_vodpx"]
+[ext_resource type="Script" uid="uid://cu8yqlcxu1kfa" path="res://scripts/players/player_input.gd" id="3_wry2o"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ua5jn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46ybd"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ua5jn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_46ybd")
+
+[node name="TickInterpolator" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("1_46ybd")
+root = NodePath("..")
+properties = Array[String]([":global_transform", ":velocity"])
+metadata/_custom_type_script = "uid://dour8fehaaugp"
+
+[node name="RollbackSynchronizer" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_vodpx")
+root = NodePath("..")
+enable_prediction = true
+state_properties = Array[String]([":global_transform", ":velocity"])
+input_properties = Array[String](["PlayerInput:mouse_rotation", "PlayerInput:look_angle", "PlayerInput: movement", "PlayerInput:fire", "PlayerInput:jump"])
+metadata/_custom_type_script = "uid://d350u8evihs1u"
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("3_wry2o")
+metadata/_custom_type_script = "uid://cu8yqlcxu1kfa"

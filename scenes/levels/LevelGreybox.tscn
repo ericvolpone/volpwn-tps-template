@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cccs1fak5w2s5"]
+
+[node name="LevelGreybox" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 1, 20)
