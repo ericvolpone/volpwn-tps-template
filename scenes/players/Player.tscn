@@ -39,7 +39,7 @@ script = ExtResource("3_wry2o")
 metadata/_custom_type_script = "uid://cu8yqlcxu1kfa"
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.953412, 0.301671, 0, -0.301671, 0.953412, 0.51428986, 1.53419, 0)
+transform = Transform3D(1, 0, 0, 0, 0.953412, 0.301671, 0, -0.301671, 0.953412, 0.51428986, 1.9750143, 0)
 spring_length = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
