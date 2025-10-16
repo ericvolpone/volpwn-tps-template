@@ -23,7 +23,7 @@ class_name HomeScreen extends Control
 #endregion
 
 #region PackedScenes
-@onready var level_scene = preload("res://scenes/levels/level_greybox.tscn")
+@onready var lobby_scene = preload("res://scenes/ui/menus/lobby/ffa_lobby_menu.tscn")
 #endregion
 
 func _ready() -> void:
@@ -59,10 +59,10 @@ func _on_host_host_button_pressed() -> void:
 		print("Must choose a host type")
 		return;
 
-	var level: Node3D = level_scene.instantiate();
-	get_tree().root.add_child(level)
+	var lobby: FFALobbyMenu = lobby_scene.instantiate();
+	get_tree().root.add_child(lobby)
 	get_tree().current_scene.queue_free()
-	get_tree().current_scene = level
+	get_tree().current_scene = lobby
 #endregion
 
 #region Func: JoinPrompt
@@ -96,10 +96,10 @@ func _on_join_connect_button_pressed() -> void:
 
 func _on_joined_server() -> void:
 	print("Joined server")
-	var level: Node3D = level_scene.instantiate();
-	get_tree().root.add_child(level)
+	var lobby: FFALobbyMenu = lobby_scene.instantiate();
+	get_tree().root.add_child(lobby)
 	get_tree().current_scene.queue_free()
-	get_tree().current_scene = level
+	get_tree().current_scene = lobby
 #endregion
 
 func _on_quit_button_pressed() -> void:

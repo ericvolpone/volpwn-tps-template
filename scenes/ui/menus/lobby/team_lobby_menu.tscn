@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hckgye14balh"]
 
-[ext_resource type="Script" uid="uid://c8hbggcpa3u3r" path="res://scripts/ui/menu/lobby_menu.gd" id="1_to2e3"]
+[ext_resource type="Script" uid="uid://c8hbggcpa3u3r" path="res://scripts/ui/menu/team_lobby_menu.gd" id="1_to2e3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qe6fu"]
 
