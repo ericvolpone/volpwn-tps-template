@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqhxeyfpt3hcv"]
+
+[ext_resource type="Script" uid="uid://dfpalbta3q7la" path="res://scripts/ui/home_screen.gd" id="1_eh0nn"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -2.0
+offset_right = 31.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eh0nn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 454.0
+offset_right = 188.0
+offset_bottom = 590.0
+
+[node name="HostButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="HostPrompt" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 373.0
+offset_right = 434.0
+offset_bottom = 474.0
+
+[node name="HostType" type="HBoxContainer" parent="HostPrompt"]
+layout_mode = 2
+
+[node name="LocalhostCheckbox" type="CheckBox" parent="HostPrompt/HostType"]
+layout_mode = 2
+button_pressed = true
+text = "Local Host"
+
+[node name="NorayCheckbox" type="CheckBox" parent="HostPrompt/HostType"]
+layout_mode = 2
+text = "Noray"
+
+[node name="HostButton" type="Button" parent="HostPrompt"]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinPrompt" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 477.0
+offset_right = 433.0
+offset_bottom = 578.0
+
+[node name="HostType" type="HBoxContainer" parent="JoinPrompt"]
+layout_mode = 2
+
+[node name="IPAddressCheckbox" type="CheckBox" parent="JoinPrompt/HostType"]
+layout_mode = 2
+button_pressed = true
+text = "IP Address"
+
+[node name="NorayCheckbox" type="CheckBox" parent="JoinPrompt/HostType"]
+layout_mode = 2
+text = "Noray"
+
+[node name="LineEdit" type="LineEdit" parent="JoinPrompt"]
+layout_mode = 2
+placeholder_text = "localhost"
+
+[node name="ConnectButton" type="Button" parent="JoinPrompt"]
+layout_mode = 2
+text = "Connect"
+
+[connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HostPrompt/HostType/LocalhostCheckbox" to="." method="_on_host_localhost_checkbox_pressed"]
+[connection signal="pressed" from="HostPrompt/HostType/NorayCheckbox" to="." method="_on_host_noray_checkbox_pressed"]
+[connection signal="pressed" from="HostPrompt/HostButton" to="." method="_on_host_host_button_pressed"]
+[connection signal="pressed" from="JoinPrompt/HostType/IPAddressCheckbox" to="." method="_on_ip_address_checkbox_pressed"]
+[connection signal="pressed" from="JoinPrompt/HostType/NorayCheckbox" to="." method="_on_noray_checkbox_pressed"]

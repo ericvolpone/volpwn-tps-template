@@ -1,6 +1,6 @@
 class_name PlayerInput extends BaseNetInput
 
-@export var mouse_sensitivity: float = 1.0
+@export var mouse_sensitivity: float = .01
 var override_mouse: bool = false
 
 # Input variables
@@ -33,12 +33,12 @@ func _ready() -> void:
 func _gather() -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var mx: float = Input.get_axis("move_west", "move_east")
-	var mz: float = Input.get_axis("move_north", "move_south")
+	var mx: float = Input.get_axis("move_left", "move_right")
+	var mz: float = Input.get_axis("move_forward", "move_backward")
 	movement = Vector3(mx, 0, mz)
 
 	jump = Input.is_action_pressed("move_jump")
-	fire = Input.is_action_pressed("mouse_weapon_fire")
+	fire = Input.is_action_pressed("weapon_fire")
 	
 	if override_mouse:
 		look_angle = Vector2.ZERO

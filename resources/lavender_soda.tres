@@ -1,0 +1,131 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cetodgfjvpoew"]
+
+[ext_resource type="FontFile" uid="uid://bq8hsa71e6r5n" path="res://resources/ui/SupplyCenterFont/Supply Center.ttf" id="1_vwsj4"]
+
+[sub_resource type="StyleBoxFlat" id="23"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.063, 0.071, 0.094, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.725, 0.765, 0.827, 0.35)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="11"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.863, 0.788, 0.902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="21"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.102, 0.122, 0.188, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.902, 0.843, 0.937, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="20"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.063, 0.071, 0.094, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.804, 0.706, 0.859, 0.45)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="22"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.804, 0.706, 0.859, 0.22)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.725, 0.608, 0.804, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="10"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.063, 0.071, 0.094, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="70"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.102, 0.122, 0.188, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="2"]
+base_font = ExtResource("1_vwsj4")
+
+[resource]
+resource_name = "PastelPlay_LavenderPlus"
+default_font = SubResource("2")
+default_font_size = 16
+Button/colors/font_color = Color(0.965, 0.969, 0.984, 1)
+Button/colors/font_disabled_color = Color(0.352831, 0.40446, 0.484606, 1)
+Button/styles/disabled = SubResource("23")
+Button/styles/focus = SubResource("11")
+Button/styles/hover = SubResource("21")
+Button/styles/normal = SubResource("20")
+Button/styles/pressed = SubResource("22")
+Label/colors/font_color = Color(0.965, 0.969, 0.984, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0)
+MenuButton/styles/hover = SubResource("21")
+MenuButton/styles/normal = SubResource("20")
+MenuButton/styles/pressed = SubResource("22")
+OptionButton/styles/disabled = SubResource("23")
+OptionButton/styles/focus = SubResource("11")
+OptionButton/styles/hover = SubResource("21")
+OptionButton/styles/normal = SubResource("20")
+OptionButton/styles/pressed = SubResource("22")
+Panel/styles/panel = SubResource("10")
+PanelContainer/styles/panel = SubResource("10")
+TooltipPanel/styles/panel = SubResource("70")
+Window/styles/embedded_border = SubResource("10")
