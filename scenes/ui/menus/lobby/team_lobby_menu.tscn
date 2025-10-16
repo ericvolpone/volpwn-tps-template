@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://hckgye14balh"]
+
+[ext_resource type="Script" uid="uid://c8hbggcpa3u3r" path="res://scripts/ui/menu/lobby_menu.gd" id="1_to2e3"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qe6fu"]
+
+[node name="TeamLobbyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_to2e3")
+
+[node name="Teams" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 155.0
+offset_right = 1920.0
+offset_bottom = 954.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Teams"]
+layout_mode = 2
+
+[node name="Team1" type="VBoxContainer" parent="Teams/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Teams/HBoxContainer/Team1"]
+layout_mode = 2
+text = "Team 1"
+
+[node name="Team2" type="VBoxContainer" parent="Teams/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Teams/HBoxContainer/Team2"]
+layout_mode = 2
+text = "Team 2
+"
+
+[node name="Unassigned" type="VBoxContainer" parent="Teams/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Teams/HBoxContainer/Unassigned"]
+layout_mode = 2
+text = "Unassigned"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_qe6fu")
