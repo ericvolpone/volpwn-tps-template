@@ -30,7 +30,6 @@ func _ready() -> void:
 	host_prompt.visible = false
 	join_prompt.visible = false
 
-
 #region Func: HostPrompt
 func _on_host_button_pressed() -> void:
 	if not join_prompt.visible:
@@ -80,10 +79,10 @@ func _on_join_noray_checkbox_pressed() -> void:
 		join_ip_address_checkbox.button_pressed = false
 
 func _on_join_connect_button_pressed() -> void:
-	var ip_address: String = join_ip_address_checkbox.text
+	var ip_address: String = join_line_edit.text
 
 	if join_ip_address_checkbox.button_pressed:
-		print("Joining with IP Address")
+		print("Joining with IP Address, " + ip_address)
 		var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 		peer.create_client(ip_address, 9999)
 		multiplayer.multiplayer_peer = peer
