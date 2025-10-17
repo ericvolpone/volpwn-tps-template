@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cccs1fak5w2s5"]
+[gd_scene load_steps=7 format=3 uid="uid://cccs1fak5w2s5"]
 
-[ext_resource type="Script" uid="uid://di0pfqcffu2h5" path="res://scripts/players/player_spawner.gd" id="1_7jwfx"]
-[ext_resource type="PackedScene" uid="uid://d3kuegi87vxvt" path="res://scenes/players/Player.tscn" id="2_2jv5y"]
+[ext_resource type="Script" uid="uid://blmn1n7ibfc87" path="res://scripts/levels/level.gd" id="1_b2cq8"]
+[ext_resource type="Script" uid="uid://di0pfqcffu2h5" path="res://scripts/players/player_spawner.gd" id="1_bovvr"]
+[ext_resource type="PackedScene" uid="uid://d3kuegi87vxvt" path="res://scenes/players/Player.tscn" id="2_b2cq8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7jwfx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +17,8 @@ sky = SubResource("Sky_2jv5y")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="LevelGreybox" type="Node3D"]
+[node name="Level" type="Node3D"]
+script = ExtResource("1_b2cq8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fha6n")
@@ -32,8 +34,8 @@ collision_layer = 5
 size = Vector3(20, 1, 20)
 
 [node name="PlayerSpawner" type="Node" parent="." node_paths=PackedStringArray("spawn_points")]
-script = ExtResource("1_7jwfx")
-player_scene = ExtResource("2_2jv5y")
+script = ExtResource("1_bovvr")
+player_scene = ExtResource("2_b2cq8")
 spawn_points = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 metadata/_custom_type_script = "uid://di0pfqcffu2h5"
 
