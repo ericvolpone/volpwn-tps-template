@@ -26,6 +26,10 @@ class_name HomeScreen extends Control
 @onready var lobby_scene = preload("res://scenes/ui/menus/lobby/ffa_lobby_menu.tscn")
 #endregion
 
+#region AuxiliaryVariables
+var joining_lobby: FFALobbyMenu;
+#endregion
+
 func _ready() -> void:
 	host_prompt.visible = false
 	join_prompt.visible = false
@@ -44,6 +48,8 @@ func _on_host_noray_checkbox_pressed() -> void:
 		host_localhost_checkbox.button_pressed = false
 
 func _on_host_host_button_pressed() -> void:
+	var lobby: FFALobbyMenu = lobby_scene.instantiate();
+	get_tree().root.add_child(lobby)
 	if host_localhost_checkbox.button_pressed:
 		print("Hosting with Local Host")
 		var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
@@ -56,11 +62,10 @@ func _on_host_host_button_pressed() -> void:
 		print("Hosting with Noray")
 		NetworkManager.host()
 	else:
+		lobby.queue_free()
 		print("Must choose a host type")
 		return;
 
-	var lobby: FFALobbyMenu = lobby_scene.instantiate();
-	get_tree().root.add_child(lobby)
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = lobby
 #endregion
@@ -79,6 +84,8 @@ func _on_join_noray_checkbox_pressed() -> void:
 		join_ip_address_checkbox.button_pressed = false
 
 func _on_join_connect_button_pressed() -> void:
+	joining_lobby = lobby_scene.instantiate()
+	get_tree().root.add_child(joining_lobby)
 	var ip_address: String = join_line_edit.text
 
 	if join_ip_address_checkbox.button_pressed:
@@ -92,14 +99,13 @@ func _on_join_connect_button_pressed() -> void:
 		NetworkManager.joined_server.connect(_on_joined_server)
 		NetworkManager.join(ip_address)
 	else:
+		joining_lobby = null;
 		print("Must choose a connection type")
 
 func _on_joined_server() -> void:
 	print("Joined server")
-	var lobby: FFALobbyMenu = lobby_scene.instantiate();
-	get_tree().root.add_child(lobby)
 	get_tree().current_scene.queue_free()
-	get_tree().current_scene = lobby
+	get_tree().current_scene = joining_lobby
 #endregion
 
 func _on_quit_button_pressed() -> void:
