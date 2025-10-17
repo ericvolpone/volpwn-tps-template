@@ -47,8 +47,8 @@ func _handle_client_started(id: int) -> void:
 func _handle_server_stop() -> void:
 	_go_back_to_home_screen()
 
-func _handle_client_stop(id: int) -> void:
-	_remove_player_team_slot(id)
+func _handle_client_stop() -> void:
+	_go_back_to_home_screen()
 
 func _create_player_team_slot(id: int) -> void:
 	_logger.info("CONNECTION: Player [" + str(id) + "] has connected")
@@ -75,9 +75,8 @@ func _start_lobby(map_id: int) -> void:
 	self.call_deferred("queue_free")
 
 func _on_leave_button_pressed() -> void:
-	_go_back_to_home_screen()
+	multiplayer.multiplayer_peer.close()
 
 func _go_back_to_home_screen() -> void:
-	multiplayer.multiplayer_peer.close()
 	get_tree().change_scene_to_packed(load("res://scenes/ui/home_screen.tscn"))
 #endregion
