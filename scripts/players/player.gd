@@ -1,12 +1,15 @@
 class_name Player extends CharacterBody3D
 
+@export var look_at: LookAtModifier3D;
+
 @export var speed = 5.0
 @export var jump_strength = 5.0
 
 @onready var input: PlayerInput = $PlayerInput
 @onready var tick_interpolator: TickInterpolator = $TickInterpolator
-@onready var spring_arm: SpringArm3D = $SpringArm3D 
-@onready var camera: Camera3D = $SpringArm3D/Camera3D
+@onready var spring_arm_look_at: SpringArm3D = $SpringArmLookAt
+@onready var spring_arm_camera: SpringArm3D = $SpringArmCamera
+@onready var camera: Camera3D = $SpringArmCamera/Camera3D
 
 static var _logger := _NetfoxLogger.new("game", "Player")
 
@@ -64,12 +67,18 @@ func _rollback_tick(delta: float, tick: int, is_fresh: bool) -> void:
 	# Handle look left and right
 	rotate_object_local(Vector3(0, 1, 0), input.look_angle.x)
 
-	# Handle look up and down
-	spring_arm.rotate_object_local(Vector3(1, 0, 0), input.look_angle.y)
-
-	spring_arm.rotation.x = clamp(spring_arm.rotation.x, -1.57, 1.57)
-	spring_arm.rotation.z = 0
-	spring_arm.rotation.y = 0
+	# Handle Camera up and down
+	spring_arm_camera.rotate_object_local(Vector3(1, 0, 0), input.look_angle.y)
+	spring_arm_camera.rotation.x = clamp(spring_arm_camera.rotation.x, -1.57, 1.57)
+	spring_arm_camera.rotation.z = 0
+	spring_arm_camera.rotation.y = 0
+	
+	# Handle Look At up and down
+	spring_arm_look_at.rotate_object_local(Vector3(1, 0, 0), input.look_angle.y)
+	spring_arm_look_at.rotation.x = clamp(spring_arm_look_at.rotation.x, -1.57, 1.57)
+	spring_arm_look_at.rotation.z = 0
+	spring_arm_look_at.rotation.y = 0
+	
 
 	# Apply movement
 	var input_dir = input.movement
