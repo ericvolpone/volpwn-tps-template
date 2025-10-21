@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Armature/Skeleton3D": {
-"retarget/bone_map": Resource("uid://jsmvf7l3e2tg", "res://assets/mixamo/Mixamo BoneMap.tres")
+"retarget/bone_map": Resource("uid://bng2p7elh361b", "res://assets/mixamo/Mixamo BoneMap.tres")
 }
 }
 }
