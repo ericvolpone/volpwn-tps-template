@@ -10,6 +10,7 @@ class_name Player extends CharacterBody3D
 @onready var spring_arm_look_at: SpringArm3D = $SpringArmLookAt
 @onready var spring_arm_camera: SpringArm3D = $SpringArmCamera
 @onready var camera: Camera3D = $SpringArmCamera/Camera3D
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 static var _logger := _NetfoxLogger.new("game", "Player")
 
@@ -36,6 +37,16 @@ func _ready():
 	await get_tree().process_frame
 	if input.is_multiplayer_authority():
 		camera.current = true
+
+func _process(delta: float) -> void:
+	var movement: Vector3 = input.movement
+	var movement_forward: float = 1 if movement.z == -1 else 0
+	var movement_backward: float = 1 if movement.z == 1 else 0
+	var animated_movement_forward: float = animation_tree.get("parameters/Run Forward/blend_amount")
+	var animated_movement_backward: float = animation_tree.get("parameters/Run Backward/blend_amount")
+
+	animation_tree.set("parameters/Run Forward/blend_amount", move_toward(animated_movement_forward, movement_forward, delta * 3))
+	animation_tree.set("parameters/Run Backward/blend_amount", move_toward(animated_movement_backward, movement_backward, delta * 3))
 
 func _before_tick_loop():
 	_ackd_deaths = deaths
