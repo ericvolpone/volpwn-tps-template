@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bntqnlj67acr3"]
+
+[ext_resource type="PackedScene" uid="uid://dosp5a2gh8ogd" path="res://scenes/weapons/gun.tscn" id="1_6kub0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6kub0"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hkhc6"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.1
+
+[node name="Rifle" node_paths=PackedStringArray("muzzle_marker", "right_hand_marker", "left_hand_marker") instance=ExtResource("1_6kub0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09497842, -0.20502952)
+muzzle_marker = NodePath("MuzzleMarker")
+right_hand_marker = NodePath("RightHandMarker")
+left_hand_marker = NodePath("LeftHandMarker")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6kub0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.086524844, 0.20080876)
+mesh = SubResource("CylinderMesh_hkhc6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.086524844, -0.026548326)
+mesh = SubResource("CylinderMesh_hkhc6")
+
+[node name="MuzzleMarker" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25280595)
+
+[node name="LeftHandMarker" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031078547, -0.10176292, -0.018654019)
+
+[node name="RightHandMarker" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028388508, -0.10176292, 0.20581798)
